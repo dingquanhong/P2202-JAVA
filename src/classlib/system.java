@@ -7,6 +7,16 @@ public class system {
     static String mysql_pass = "123456";
     static String Defaultavatar="D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\avatar.jpg";
     static String user;
+    static String phone;
+
+    public static String getPhone() {
+        return phone;
+    }
+
+    public static void setPhone(String phone) {
+        system.phone = phone;
+    }
+
     public static String format(String s){
         if (!s.contains("/'")){
             s="\""+s+"\"";

@@ -40,11 +40,7 @@ public class JBDC_Booklib {
     }
 
     public static void main(String[] args) {       //打印
-        List<Book> BookList = new ArrayList<>();
-        BookList = readBookData();
-        for (Book book : BookList){
-            System.out.println(book);
-        }
+        Updatestatus(1,0);
     }
 
     /**
@@ -96,11 +92,11 @@ public class JBDC_Booklib {
         Book findbook = JBDC_Booklib.querryBookbyID(bookid);
         try {
         if (findbook!=null){
-            Statement  statement = null;
+            Statement  statement = connection.createStatement();
 
-            statement = connection.createStatement();
-            String sql = "UPDATE booklib SET state= '"+status+"' where id='"+bookid+"'";
-            ResultSet rs = statement.executeQuery(sql);
+            String sql = "UPDATE booklib SET state= "+status+" where id="+bookid;
+            System.out.println(sql);
+//            ResultSet rs = statement.executeQuery(sql);
             if (statement.executeUpdate(sql)>1){
                 return true;
             }
@@ -172,4 +168,23 @@ public class JBDC_Booklib {
         }
         return BookList;
     }
+    /**
+     * 实现图书状态改变的功能
+     * @param book 要更新状态的图书对象
+     */
+    public static boolean editBook(int id,Book book) {
+        Connection connection = JBDC_Control.getConnection();
+
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "UPDATE book SET state = " + book.getstate() + " WHERE id = " + book.getid();
+            int count=statement.executeUpdate(sql);
+            if(count>0) {
+                System.out.println("图书状态已成功更新 ID：" + book.getid());
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;    }
 }

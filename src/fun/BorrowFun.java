@@ -26,19 +26,40 @@ public class BorrowFun {
     public static String getBookname(int currentpagenum,int index) {
         int cloum = BorrowFun.getBookID(currentpagenum,index);
         List<Book> books=  JBDC_Booklib.readBookData();
-        String bookname = books.get(cloum-1).getbookname();
-        return bookname;
-    }
-    public static String getBookdesc(int currentpagenum,int index) {
-        int cloum = BorrowFun.getBookID(currentpagenum,index);
-        List<Book> books=  JBDC_Booklib.readBookData();
+        if (cloum>books.size()){
+            return "";
+        }
         String bookname = books.get(cloum-1).getbookname();
         return bookname;
     }
 
+
+    public static String getBookdesc(int currentpagenum,int index) {
+        int cloum = BorrowFun.getBookID(currentpagenum,index);
+        List<Book> books=  JBDC_Booklib.readBookData();
+        if (cloum>books.size()){
+            return "";
+        }
+        String bookdesc = books.get(cloum-1).getdescribe();
+        return bookdesc;
+    }
+    public static int getthisBookID(int currentpagenum,int index){
+        int cloum = BorrowFun.getBookID(currentpagenum,index);
+        List<Book> books=  JBDC_Booklib.readBookData();
+        if (cloum>books.size()){
+            return -1;
+        }
+        int bookID = books.get(cloum-1).getid();
+        return bookID;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getthisBookID(2,1));
+    }
     public static String getMaxPagenum() {
         List books = JBDC_Booklib.readBookData();
-        int Maxpagenum = books.size()/5;
+        int Maxpagenum = books.size()/5+1;
         return String.valueOf(Maxpagenum);
     }
 
@@ -55,8 +76,6 @@ public class BorrowFun {
         return true;
     }
 
-    public static void main(String[] args) {
-        borrowBook(1,"11");
-    }
+
 
 }

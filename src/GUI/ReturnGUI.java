@@ -54,31 +54,51 @@ public class ReturnGUI {
         B2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int Bookdes;
+                if (ReturnFun.returnbook(current,1)){
+                    JOptionPane.showMessageDialog(null,"归还成功");
+
+                }else {
+                    JOptionPane.showMessageDialog(null,"归还失败");
+                }
             }
         });
         B3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (ReturnFun.returnbook(current,1)){
+                    JOptionPane.showMessageDialog(null,"归还成功");
 
+                }else {
+                    JOptionPane.showMessageDialog(null,"归还失败");
+                }
             }
         });
         B4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (ReturnFun.returnbook(current,1)){
+                    JOptionPane.showMessageDialog(null,"归还成功");
 
+                }else {
+                    JOptionPane.showMessageDialog(null,"归还失败");
+                }
             }
         });
         B5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (ReturnFun.returnbook(current,1)){
+                    JOptionPane.showMessageDialog(null,"归还成功");
 
+                }else {
+                    JOptionPane.showMessageDialog(null,"归还失败");
+                }
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current --;
+                current=current-1;
                 GUIShow(current);
             }
         });
@@ -92,15 +112,15 @@ public class ReturnGUI {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current ++;
+                current =current+1;
                 GUIShow(current);
             }
         });
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                current=Integer.parseInt(ReturnFun.getMaxPagenum());
-//                GUIShow(current);
+                current=Integer.parseInt(ReturnFun.getMaxPagenum());
+                GUIShow(current);
             }
         });
     }
