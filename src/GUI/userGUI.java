@@ -22,6 +22,12 @@ public class userGUI{
     private JButton BorrowButton;
     private JButton ReturnButton;
     private JTabbedPane tabbedPane2;
+    private JLabel F1;
+    private JLabel F2;
+    private JLabel F3;
+    private JLabel F4;
+    private JLabel F5;
+
     public userGUI(){
 
         BorrowButton.addActionListener(new ActionListener() {
@@ -54,7 +60,11 @@ public class userGUI{
 
         avatar.setIcon(new ImageIcon(path));
 
-
+        F1.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\1.jpg"));
+        F2.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\2.jpg"));
+        F3.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\4.jpg"));
+        F4.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\5.jpg"));
+        F5.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\7.jpg"));
 
     }
 

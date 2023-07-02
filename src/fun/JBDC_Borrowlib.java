@@ -214,4 +214,23 @@ public class JBDC_Borrowlib {
         }
         return null;
     }
+    public static List querryBookbyName(String searchtext) {
+        List<Book> BookList =  JBDC_Booklib.readBookData();
+        for (Book book:BookList){
+            if (book.getbookname().contains(searchtext)){
+
+                BookList.add(book);
+            }
+        }
+        return BookList;
+    }
+    public static Borrowrecord querryByBookID(int bookid){
+        List<Borrowrecord> records = JBDC_Borrowlib.readBorrowData();
+        for(Borrowrecord record:records){
+            if (record.getBorrowBookID()==(bookid)){
+                return record;
+            }
+        }
+        return null;
+    }
 }

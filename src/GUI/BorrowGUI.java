@@ -237,14 +237,17 @@ public class BorrowGUI {
 
     private String getBookState(JButton button, int curentpagenum, int i) {
         int BookID = BorrowFun.getBookID(curentpagenum,i);
-        Book book = JBDC_Booklib.querryBookbyID(BookID);
-        switch (book.getstate()){
-            case 0:
-                return "借阅";
-            case 1:
-                button.setEnabled(false);
-                return "已借出";
+        if (BookID!=-1){
+            Book book = JBDC_Booklib.querryBookbyID(BookID);
+            switch (book.getstate()){
+                case 0:
+                    return "借阅";
+                case 1:
+                    button.setEnabled(false);
+                    return "已借出";
+            }
         }
+
         return null;
     }
 
