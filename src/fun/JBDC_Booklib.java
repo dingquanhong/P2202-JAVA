@@ -110,31 +110,25 @@ public class JBDC_Booklib {
         }
         return false;
     }
-    /**
-     * 编辑图书数据
-     *
-     * @param bookid bookid
-     * @param book   书
-     * @return boolean
-     */
-    public static boolean editBookData(int bookid,Book book) {                     //修改
-        Connection connection = JBDC_Control.getConnection();
+/**
+ * 实现图书状态改变的功能
+ * @param book 要更新状态的图书对象
+ */
+public static boolean editBookData(int id,Book book) {
+            Connection connection = JBDC_Control.getConnection("root","123456");
 
-        try {
-            Statement statement = connection.createStatement();
-            String sql = "UPDATE booklib SET bookname = '" + book.getbookname() + "', author = '" + book.getauthor() + "', describe = '" + book.getdescribe() +
-                    "', ISBN = '" + book.getISBN() + "', score = " + book.getscore() + ", price = " + book.getprice() + ", state = " + book.getstate() +
-                    " WHERE id = " + book.getid();
-            int count =statement.executeUpdate(sql);
-            if (count>0) {
-                System.out.println("id为" + book.getid() + " 的图书已经修改");
-                return true;
+            try {
+                Statement statement = connection.createStatement();
+                String sql = "UPDATE book SET state = " + book.getstate() + " WHERE id = " + book.getid();
+                int count=statement.executeUpdate(sql);
+                if(count>0) {
+                    System.out.println("图书状态已成功更新 ID：" + book.getid());
+                    return true;
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-            return false;
-    }
+            return false;    }
 
     /**
      * 添加图书数据
