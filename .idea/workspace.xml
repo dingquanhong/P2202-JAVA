@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a02b89e-8c97-4c12-ac39-4ac4170ad449" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fun/BookmanagementFun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/userGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/userGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/LoginFUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/LoginFUN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UaerManage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UaerManage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UaerManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UaerManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/file.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +96,7 @@
       <workItem from="1688223686623" duration="1756000" />
       <workItem from="1688225548894" duration="1814000" />
       <workItem from="1688254352426" duration="8857000" />
-      <workItem from="1688264539733" duration="6039000" />
+      <workItem from="1688264539733" duration="10194000" />
     </task>
     <servers />
   </component>
