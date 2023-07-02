@@ -150,6 +150,7 @@ public class JBDC_User {
         return true;
     }
 
+
 //    public static boolean  getUserInformation( ){
 //        Connection connection = JBDC_Control.getConnection();
 //        Statement statement = null;

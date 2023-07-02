@@ -1,12 +1,10 @@
 package fun;
 
 import GUI.BorrowGUI;
-import classlib.Book;
+import classlib.*;
 
 
-import javax.xml.crypto.Data;
-import java.sql.SQLException;
-import java.text.Format;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,9 +17,17 @@ public class BorrowFun {
         return false;
     }
     public static int getBookID(int currentpagenum,int index){
-        List books = JBDC_Booklib.readBookData();
+        List<Book> books = JBDC_Booklib.readBookData();
         int ID = (currentpagenum-1)*5+index;
+
         return ID;
+    }
+    public static int getBook(int currentpagenum,int index){
+        List<Book> books = JBDC_Booklib.readBookData();
+        int ID = (currentpagenum-1)*5+index;
+        Book thisbook = books.get(ID);
+        return thisbook.getid();
+
     }
     public static String getBookname(int currentpagenum,int index) {
         int cloum = BorrowFun.getBookID(currentpagenum,index);
@@ -34,15 +40,7 @@ public class BorrowFun {
     }
 
 
-    public static String getBookdesc(int currentpagenum,int index) {
-        int cloum = BorrowFun.getBookID(currentpagenum,index);
-        List<Book> books=  JBDC_Booklib.readBookData();
-        if (cloum>books.size()){
-            return "";
-        }
-        String bookdesc = books.get(cloum-1).getdescribe();
-        return bookdesc;
-    }
+
     public static int getthisBookID(int currentpagenum,int index){
         int cloum = BorrowFun.getBookID(currentpagenum,index);
         List<Book> books=  JBDC_Booklib.readBookData();
@@ -77,5 +75,13 @@ public class BorrowFun {
     }
 
 
-
+    public static String getBookauthor(int currentpagenum, int index) {
+        int cloum = BorrowFun.getBookID(currentpagenum,index);
+        List<Book> books=  JBDC_Booklib.readBookData();
+        if (cloum>books.size()){
+            return "";
+        }
+        String bookdesc = books.get(cloum-1).getauthor();
+        return bookdesc;
+    }
 }

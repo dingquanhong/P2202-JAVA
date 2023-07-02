@@ -17,7 +17,6 @@ public class BorrowGUI {
     private JTextField search;
     private JButton searchButton;
     private JButton B1;
-    private JButton A1;
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -50,7 +49,7 @@ public class BorrowGUI {
 
     public BorrowGUI(){
         GUIShow(current);
-        this.BorrowUserID = system.getUser();
+        this.BorrowUserID = system.getPhone();
 
 
         button4.addActionListener(new ActionListener() {
@@ -85,14 +84,11 @@ public class BorrowGUI {
         B1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,1);
-                Data today = null;
-                Data returnDtae = null;
+                int BookID = BorrowFun.getthisBookID(current,1);
+                System.out.println(BookID);
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B1.setEnabled(false);
-                    Book newstatus = JBDC_Booklib.querryBookbyID(BookID);
-                    newstatus.setState(1);
-                    JBDC_Booklib.editBookData(BookID,newstatus);
+                    JBDC_Booklib.Updatestatus(BookID,1);
                     B1.setText("已借阅");
                 }else{
                     JOptionPane.showMessageDialog(null,"借阅失败");
@@ -102,14 +98,11 @@ public class BorrowGUI {
         B2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,1);
-                Data today = null;
-                Data returnDtae = null;
+                int BookID = BorrowFun.getBookID(current,2);
+
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B2.setEnabled(false);
-                    Book newstatus = JBDC_Booklib.querryBookbyID(BookID);
-                    newstatus.setState(1);
-                    JBDC_Booklib.editBookData(BookID,newstatus);
+                    JBDC_Booklib.Updatestatus(BookID,1);
                     B2.setText("已借阅");
                 }else{
                     JOptionPane.showMessageDialog(null,"借阅失败");
@@ -119,14 +112,11 @@ public class BorrowGUI {
         B3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,1);
-                Data today = null;
-                Data returnDtae = null;
+                int BookID = BorrowFun.getBookID(current,3);
+                System.out.println(BookID);
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B3.setEnabled(false);
-                    Book newstatus = JBDC_Booklib.querryBookbyID(BookID);
-                    newstatus.setState(1);
-                    JBDC_Booklib.editBookData(BookID,newstatus);
+                    JBDC_Booklib.Updatestatus(BookID,1);
                     B3.setText("已借阅");
                 }else{
                     JOptionPane.showMessageDialog(null,"借阅失败");
@@ -136,12 +126,12 @@ public class BorrowGUI {
         B4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,1);
-                Data today = null;
-                Data returnDtae = null;
+
+
+                int BookID = BorrowFun.getthisBookID(current,4);
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B4.setEnabled(false);
-
+                    JBDC_Booklib.Updatestatus(BookID,1);
                     B4.setText("已借阅");
                 }else{
                     JOptionPane.showMessageDialog(null,"借阅失败");
@@ -151,12 +141,10 @@ public class BorrowGUI {
         B5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,1);
-                Data today = null;
-                Data returnDtae = null;
+                int BookID = BorrowFun.getthisBookID(current,5);
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B5.setEnabled(false);
-
+                    JBDC_Booklib.Updatestatus(BookID,1);
                     B5.setText("已借阅");
                 }else{
                     JOptionPane.showMessageDialog(null,"借阅失败");
@@ -217,11 +205,11 @@ public class BorrowGUI {
         if (this.name5.getText().equals("")){
             this.Book5.setVisible(false);
         }
-        this.detail1.setText(BorrowFun.getBookdesc(curentpagenum,1));
-        this.detail2.setText(BorrowFun.getBookdesc(curentpagenum,2));
-        this.detail3.setText(BorrowFun.getBookdesc(curentpagenum,3));
-        this.detail4.setText(BorrowFun.getBookdesc(curentpagenum,4));
-        this.detail5.setText(BorrowFun.getBookdesc(curentpagenum,5));
+        this.detail1.setText(BorrowFun.getBookauthor(curentpagenum,1));
+        this.detail2.setText(BorrowFun.getBookauthor(curentpagenum,2));
+        this.detail3.setText(BorrowFun.getBookauthor(curentpagenum,3));
+        this.detail4.setText(BorrowFun.getBookauthor(curentpagenum,4));
+        this.detail5.setText(BorrowFun.getBookauthor(curentpagenum,5));
         this.B1.setText(getBookState(B1,curentpagenum,1));
         this.B2.setText(getBookState(B2,curentpagenum,2));
         this.B3.setText(getBookState(B3,curentpagenum,3));

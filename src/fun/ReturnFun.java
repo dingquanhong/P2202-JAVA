@@ -37,6 +37,7 @@ public class ReturnFun {
         List<Borrowrecord> userlist = ReturnFun.getUserlist();
         System.out.println(userlist);
         int line = (curentpagenum-1)*5+index-1;
+        System.out.println(line);
         Borrowrecord thisrecord=userlist.get(line);
         int bookid = thisrecord.getId();
         String bookname = JBDC_Booklib.querryBookbyID(bookid).getbookname();

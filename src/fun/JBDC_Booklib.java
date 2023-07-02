@@ -68,39 +68,36 @@ public class JBDC_Booklib {
      * @return boolean
      */
     public static boolean deleteBook(int id){                     //删除
-    Connection connection = JBDC_Control.getConnection();
+        Connection connection = JBDC_Control.getConnection();
 
-    try {
-        Statement statement = connection.createStatement();
-        String sql = "DELETE FROM book WHERE id =" + id;
-        int count =statement.executeUpdate(sql);
-        if (count>0) {
-            System.out.println("id为" + id + " 的图书已经删除");
-            return true;
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "DELETE FROM book WHERE id =" + id;
+            int count =statement.executeUpdate(sql);
+            if (count>0) {
+                System.out.println("id为" + id + " 的图书已经删除");
+                return true;
+            }
+
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
         }
-
-    } catch (SQLException e) {
-
-        throw new RuntimeException(e);
+        return false;
     }
-    return false;
-}
 
 
     public static boolean Updatestatus(int bookid,int status){
         Connection connection = JBDC_Control.getConnection();
         Book findbook = JBDC_Booklib.querryBookbyID(bookid);
         try {
-        if (findbook!=null){
-            Statement  statement = connection.createStatement();
-
-            String sql = "UPDATE booklib SET state= "+status+" where id="+bookid;
-            System.out.println(sql);
-//            ResultSet rs = statement.executeQuery(sql);
-            if (statement.executeUpdate(sql)>1){
-                return true;
+            if (findbook!=null){
+                Statement  statement = connection.createStatement();
+                String sql = "UPDATE booklib SET state = "+status+" where id="+bookid;
+                if (statement.executeUpdate(sql)>1){
+                    return true;
+                }
             }
-        }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -129,7 +126,7 @@ public class JBDC_Booklib {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-            return false;
+        return false;
     }
 
     /**
