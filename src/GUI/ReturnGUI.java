@@ -43,120 +43,63 @@ public class ReturnGUI {
         B1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ReturnFun.returnbook(current,1)){
-                    JOptionPane.showMessageDialog(null,"归还成功");
 
-                }else {
-                    JOptionPane.showMessageDialog(null,"归还失败");
-                }
 
             }
         });
         B2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ReturnFun.returnbook(current,1)){
-                    JOptionPane.showMessageDialog(null,"归还成功");
 
-                }else {
-                    JOptionPane.showMessageDialog(null,"归还失败");
-                }
             }
         });
         B3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ReturnFun.returnbook(current,1)){
-                    JOptionPane.showMessageDialog(null,"归还成功");
 
-                }else {
-                    JOptionPane.showMessageDialog(null,"归还失败");
-                }
             }
         });
         B4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ReturnFun.returnbook(current,1)){
-                    JOptionPane.showMessageDialog(null,"归还成功");
 
-                }else {
-                    JOptionPane.showMessageDialog(null,"归还失败");
-                }
             }
         });
         B5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (ReturnFun.returnbook(current,1)){
-                    JOptionPane.showMessageDialog(null,"归还成功");
 
-                }else {
-                    JOptionPane.showMessageDialog(null,"归还失败");
-                }
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current=current-1;
-                GUIShow(current);
+
             }
         });
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current  = 1;
-                GUIShow(current);
+
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current =current+1;
-                GUIShow(current);
+
             }
         });
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                current=Integer.parseInt(ReturnFun.getMaxPagenum());
-                GUIShow(current);
+
             }
         });
     }
 
     public  void GUIShow(int curentpagenum){
-        this.page.setText(String.valueOf(curentpagenum)+"/"+ ReturnFun.getMaxPagenum());
-        System.out.println(ReturnFun.getBookname(curentpagenum,1));
-        this.name1.setText(ReturnFun.getBookname(curentpagenum,1));
-        this.name2.setText(ReturnFun.getBookname(curentpagenum,2));
-        this.name3.setText(ReturnFun.getBookname(curentpagenum,3));
-        this.name4.setText(ReturnFun.getBookname(curentpagenum,4));
-        this.name5.setText(ReturnFun.getBookname(curentpagenum,5));
-
-        if (this.name1.getText().equals("")){
-            this.Book1.setVisible(false);
-        }
-        if (this.name2.getText().equals("")){
-            this.Book2.setVisible(false);
-        }
-        if (this.name3.getText().equals("")){
-            this.Book3.setVisible(false);
-        }
-        if (this.name4.getText().equals("")){
-            this.Book4.setVisible(false);
-        }
-        if (this.name5.getText().equals("")){
-            this.Book5.setVisible(false);
-        }
-
-        this.detail1.setText(ReturnFun.getBookname(curentpagenum,1));
-        this.detail2.setText(ReturnFun.getBookname(curentpagenum,2));
-        this.detail3.setText(ReturnFun.getBookname(curentpagenum,3));
-        this.detail4.setText(ReturnFun.getBookname(curentpagenum,4));
-        this.detail5.setText(ReturnFun.getBookname(curentpagenum,5));
-
+        page.setText(curentpagenum+"/"+ReturnFun.getMaxPagenum());
+        name1.setText(ReturnFun.getbookname(curentpagenum,1));
 
     }
 
@@ -180,7 +123,6 @@ public class ReturnGUI {
 
 
 
-   //     Connection connection = JBDC_Control.getConnection();
 
 
 }

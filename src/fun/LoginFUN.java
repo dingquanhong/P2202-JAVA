@@ -24,8 +24,9 @@ public class LoginFUN {
                 if (userlogin!=null){
                     if (userlogin.getPass().equals(pass)){
                         system.setUser(userlogin.getUser());
+                        system.setPhone(userlogin.getPhone());
                         system.setType(0);
-                        System.out.println(system.getPhone());
+
                         System.out.println(userlogin.getUser()+"登录成功");
                         return true;
                     }

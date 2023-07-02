@@ -1,62 +1,50 @@
 package fun;
 
-import classlib.Book;
+import classlib.*;
 import classlib.Borrowrecord;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReturnFun {
-    List books = JBDC_Booklib.readBookData();
-    public static boolean byID(int bookid){
+    public static List getUserlist(){
+        List<Borrowrecord> borrowrecords = JBDC_Borrowlib.readBorrowData();
 
-        return false;
-    }
-    public static int getBookID(int currentpagenum, int index){
-        List books = JBDC_Booklib.readBookData();
-        int ID = (currentpagenum-1)*5+index;
-        return ID;
-    }
-    public static String getBookname(int currentpagenum,int index) {
-        int cloum = ReturnFun.getBookID(currentpagenum,index);
-        List<Borrowrecord> record = JBDC_Borrowlib.readBorrowData();
-        if (index>record.size()){
-            return "";
+        List<Borrowrecord> userrecords= new ArrayList<>();
+        for (Borrowrecord record:borrowrecords){
+            System.out.println(record.getBorrowUserID());
+            String userID = record.getBorrowUserID();
+            if (userID.equals(system.getPhone())){
+                userrecords.add(record);
+            }
         }
+        return userrecords;
+    }
 
-        Borrowrecord thisrecord = record.get(index-1);
-        int bookid = thisrecord.getBorrowBookID();
+    public static int getMaxPagenum() {
+        List userlist = ReturnFun.getUserlist();
+        float Maxpagef =  userlist.size()/5;
+        int Maxpagenum = userlist.size()/5;
+        if (Maxpagef!=Maxpagenum){
+            return Maxpagenum;
+        }else {
+            return Maxpagenum+1;
+        }
+    }
+
+
+    public static String getbookname(int curentpagenum, int index) {
+        List<Borrowrecord> userlist = ReturnFun.getUserlist();
+        System.out.println(userlist);
+        int line = (curentpagenum-1)*5+index-1;
+        Borrowrecord thisrecord=userlist.get(line);
+        int bookid = thisrecord.getId();
         String bookname = JBDC_Booklib.querryBookbyID(bookid).getbookname();
+
         return bookname;
+
     }
 
 
-
-
-    public static String getBookdesc(int currentpagenum,int index) {
-        int cloum = ReturnFun.getBookID(currentpagenum,index);
-        List<Book> books = JBDC_Borrowlib.readBorrowData();
-        String bookdesc = books.get(cloum-1).getdescribe();
-        return bookdesc;
-    }
-
-    public static String getMaxPagenum() {
-        List books = JBDC_Borrowlib.readBorrowData();
-        int Maxpagenum = books.size()/5+1;
-        return String.valueOf(Maxpagenum);
-    }
-
-
-    public static boolean returnbook(int currentpagenum, int index) {
-        int cloum = ReturnFun.getBookID(currentpagenum,index);
-        List<Borrowrecord> record = JBDC_Borrowlib.readBorrowData();
-        if (index>record.size()){
-            return false;
-        }
-        Borrowrecord thisrecord = record.get(index-1);
-        int bookid = thisrecord.getBorrowBookID();
-        boolean flag = JBDC_Booklib.Updatestatus(bookid,0);
-        JBDC_Borrowlib.deletebyID(index);
-        return flag;
-    }
 }
 

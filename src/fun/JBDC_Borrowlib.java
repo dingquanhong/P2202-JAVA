@@ -190,11 +190,11 @@ public class JBDC_Borrowlib {
             while (rs.next()){
                 recordList.add(new Borrowrecord(
                         rs.getInt(1),//ID
-                        rs.getInt(2), //
-                        rs.getString(3),//pass
-                        rs.getString(4),//phone
-                        rs.getString(5),//avatar
-                        rs.getInt(6)
+                        rs.getInt(2), //BorrowBookID
+                        rs.getString(3),//BorrowUserID
+                        rs.getString(4),//BorrowData
+                        rs.getString(5),//ReruenData
+                        rs.getInt(6)//status
                 ));
             }
             JBDC_Control.close(rs,statement,connection);
