@@ -1,13 +1,52 @@
 package classlib;
 
-import java.util.function.Function;
-
 public class system {
     static String mysql_admin = "root";
     static String mysql_pass = "123456";
+    static int avatar;
+    static int userid ;
+
+    public static int getUserid() {
+        return userid;
+    }
+
+    public static void setUserid(int userid) {
+        system.userid = userid;
+    }
+
+    public static int getAvatar() {
+        return avatar;
+    }
+    public static String avatarpath(){
+        String path = "D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\user\\"+getPhone()+".jpg";
+        return path;
+    }
+    public static void setAvatar(int avatar) {
+        system.avatar = avatar;
+    }
+
     static String Defaultavatar="D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\avatar.jpg";
     static String user;
     static String phone;
+    static String pass;
+
+    public static String getPass() {
+        return pass;
+    }
+
+    public static void setPass(String pass) {
+        system.pass = pass;
+    }
+
+    static int borrownum;
+
+    public static int getBorrownum() {
+        return borrownum;
+    }
+
+    public static void setBorrownum(int borrownum) {
+        system.borrownum = borrownum;
+    }
 
     public static String getPhone() {
         return phone;

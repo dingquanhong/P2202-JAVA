@@ -5,8 +5,17 @@ public class User {
     String user;
     String pass;
     String phone;
-    String avatar;
+    int avatar;
     int borrownum;
+
+    public int getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(int avatar) {
+        this.avatar = avatar;
+    }
+
     String borrowbooklist;
     int booklistnum;
 
@@ -58,13 +67,9 @@ public class User {
         this.pass = pass;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+
+
 
     public int getBorrownum() {
         return borrownum;
@@ -106,7 +111,7 @@ public class User {
         A3 = a3;
     }
 
-    public User(int id, String user, String pass, String phone, String avatar, int borrownum, String borrowbooklist, int booklistnum, String a1, String a2, String a3) {
+    public User(int id, String user, String pass, String phone, int avatar, int borrownum, String borrowbooklist, int booklistnum, String a1, String a2, String a3) {
         this.id = id;
         this.user = user;
         this.pass = pass;

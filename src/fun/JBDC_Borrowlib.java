@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import GUI.BorrowGUI;
 import classlib.*;
 public class JBDC_Borrowlib {
     //查询
@@ -51,21 +50,19 @@ public class JBDC_Borrowlib {
 
 
     //删除
-    public static void deletebyID(int id)  {
+    public static boolean deletebyID(int id)  {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/library";
-            String user = system.getMysql_admin();
-            String pass = system.getMysql_pass();
-            conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("delete from borrowlib where id=?");
-            ps.setInt(id,1);
-            int i=ps.executeUpdate();
+            conn = JBDC_Control.getConnection();
+            String sql = "delete from borrowlib where id= "+id;
+            ps=conn.prepareStatement(sql);
+            System.out.println("delete from borrowlib where id= "+id);
+            int i=ps.executeUpdate(sql);
             if (i>0){
-                System.out.println("删除成功");
+                return true;
             }
+
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -80,7 +77,9 @@ public class JBDC_Borrowlib {
                 e.printStackTrace();
             }
         }
+        return true;
     }
+
 
     //插入
     public static boolean insert(int id ,int BorrowBookID, String BorrowUserID, String BorrowDate, String ReturnDate, int status)  {
@@ -171,6 +170,7 @@ public class JBDC_Borrowlib {
             if (flag>1){
                 return true;
             }
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -178,33 +178,39 @@ public class JBDC_Borrowlib {
         return false;
     }
 
+
+
     public static List readBorrowData(){
 
-        List<Borrowrecord> recordList = new ArrayList<>();
+        List<Borrowrecord> borrowrecords = new ArrayList<>();
         Connection connection = JBDC_Control.getConnection();
 
         try {
-            Statement  statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM borrowlib";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()){
-                recordList.add(new Borrowrecord(
-                        rs.getInt(1),//ID
+                Borrowrecord borrowrecord = new Borrowrecord(rs.getInt(1),//id
                         rs.getInt(2), //BorrowBookID
                         rs.getString(3),//BorrowUserID
-                        rs.getString(4),//BorrowData
-                        rs.getString(5),//ReruenData
+                        rs.getString(4),//BprrowDate
+                        rs.getString(5),//ReturnDate
                         rs.getInt(6)//status
-                ));
+                        );
+                borrowrecords.add(borrowrecord);
+
+//                JBDC_Control.close(null,statement,connection);
             }
-            JBDC_Control.close(rs,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        return recordList;
+        return borrowrecords;
 
     }
+
+
+
     public static Borrowrecord querryByuserID(String userid){
         List<Borrowrecord> records = JBDC_Borrowlib.readBorrowData();
         for(Borrowrecord record:records){

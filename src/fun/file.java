@@ -56,8 +56,18 @@ public class file {
         JFileChooser Chooser = new JFileChooser();
         Chooser.showOpenDialog(null);
         File f = Chooser.getSelectedFile();
-        boolean flag= filecopy(f.getPath(),destPath);
+        ImageIcon icon = new ImageIcon(f.getPath());
+        boolean flag =false;
+        if (icon.getIconWidth()>120||icon.getIconHeight()>120){
+            JOptionPane.showMessageDialog(null,"头像不能大于80像素");
+        }else if(icon.getIconHeight()-icon.getIconWidth()>80){
+            JOptionPane.showMessageDialog(null,"头像请尽量上传正方形图片");
+        }else {
+            flag= filecopy(f.getPath(),destPath);
+        }
+
         return flag;
     }
+
 
 }

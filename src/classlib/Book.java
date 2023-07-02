@@ -70,7 +70,7 @@ public class Book {
     public void setState(int state) {
         this.state = state;
     }
-    public Book(int id, String bookname, String author, String imgsrc, String describe, String ISBN, Float score , Float price, int state) {
+    public Book(int id, String bookname, String author, String imgsrc, String describe, String ISBN,  Float price, Float score ,int state) {
         this.id = id;
         this.bookname = bookname;
         this.author = author;

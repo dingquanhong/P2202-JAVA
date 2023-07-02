@@ -1,60 +1,64 @@
 package classlib;
 
 public class Borrowrecord {
-     static int id;
-     static int BorrowBookID;
-    static String BorrowUserID;
-     static String BorrowDate;
-    static String ReturnDate;
-    static int status;
+     int ID;
+     int BorrowBookID;
+     String BorrowUserID;
+     String BorrowDate;
+     String ReturenDate;
+     int status;
+    @Override
+    public String toString() {
+        return this.getBorrowUserID()+":"+getBorrowBookID();
+    }
 
-    public Borrowrecord(int id, int borrowBookID, String borrowUserID, String borrowDate, String returnDate, int status) {
-        this.id = id;
+    public Borrowrecord(int ID, int borrowBookID, String borrowUserID, String borrowDate, String returenDate, int status) {
+        this.ID = ID;
         BorrowBookID = borrowBookID;
         BorrowUserID = borrowUserID;
         BorrowDate = borrowDate;
-        ReturnDate = returnDate;
+        ReturenDate = returenDate;
         this.status = status;
     }
 
-    public  int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public  void setId(int id) {
-        Borrowrecord.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getBorrowBookID() {
-        return this.BorrowBookID;
+        return BorrowBookID;
     }
 
-    public  void setBorrowBookID(int borrowBookID) {
+    public void setBorrowBookID(int borrowBookID) {
         BorrowBookID = borrowBookID;
     }
 
-    public  String getBorrowUserID() {
+    public String getBorrowUserID() {
         return BorrowUserID;
     }
 
-    public static void setBorrowUserID(String borrowUserID) {
+    public void setBorrowUserID(String borrowUserID) {
         BorrowUserID = borrowUserID;
     }
 
-    public static String getBorrowDate() {
+    public String getBorrowDate() {
         return BorrowDate;
     }
 
-    public static void setBorrowDate(String borrowDate) {
+    public void setBorrowDate(String borrowDate) {
         BorrowDate = borrowDate;
     }
 
-    public static String getReturnDate() {
-        return ReturnDate;
+    public String getReturenDate() {
+        return ReturenDate;
     }
 
-    public static void setReturnDate(String returnDate) {
-        ReturnDate = returnDate;
+    public void setReturenDate(String returenDate) {
+        ReturenDate = returenDate;
     }
 
     public int getStatus() {

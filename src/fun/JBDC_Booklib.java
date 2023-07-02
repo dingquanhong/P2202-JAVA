@@ -32,6 +32,7 @@ public class JBDC_Booklib {
                         rs.getInt(9)//state
                 ));
             }
+            JBDC_Control.close(rs,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +79,7 @@ public class JBDC_Booklib {
                 System.out.println("id为" + id + " 的图书已经删除");
                 return true;
             }
-
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
 
             throw new RuntimeException(e);
@@ -97,7 +98,9 @@ public class JBDC_Booklib {
                 if (statement.executeUpdate(sql)>1){
                     return true;
                 }
+                JBDC_Control.close(null,statement,connection);
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -123,6 +126,7 @@ public class JBDC_Booklib {
                 System.out.println("id为" + book.getid() + " 的图书已经修改");
                 return true;
             }
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -149,6 +153,7 @@ public class JBDC_Booklib {
                 System.out.println("图书已添加");
                 return true;
             }
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -180,6 +185,7 @@ public class JBDC_Booklib {
                 System.out.println("图书状态已成功更新 ID：" + book.getid());
                 return true;
             }
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

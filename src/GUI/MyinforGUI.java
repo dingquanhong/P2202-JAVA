@@ -5,28 +5,51 @@ import fun.*;
 import fun.Window;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MyinforGUI {
     String username;
-    private JTextPane userTextPane;
-    private JPasswordField passwordField1;
+    public JTextPane user;
+    public JPasswordField passwordField1;
+    public JTextField phone;
+    public JButton updataButton;
+    public JPanel Myinfor;
+    public JLabel avatar;
     public MyinforGUI(int type,String username){
-        this.username=username;
-        String path = system.getDefaultavatar();
+        user.setText(system.getUser());
+        phone.setText(system.getPhone());
+        passwordField1.setText(system.getPass());
+        String path;
+        if (system.getAvatar()==0){
+            path = system.getDefaultavatar();
+        }else {
+            path = system.avatarpath();
+        }
+
         avatar.setIcon(new ImageIcon(path));
         avatar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                file.filecopy("./bin/"+username);
+                file.filecopy("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\user\\"+system.getPhone()+".jpg");
+                JBDC_User.editUserimg(system.getPhone(),1);
                 super.mouseClicked(e);
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
+            }
+        });
+        updataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username=user.getText();
+                String phonenum = phone.getText();
+                String password = String.valueOf(passwordField1.getPassword());
+                JBDC_User.editUserData(system.getUserid(),phonenum,username,password);
             }
         });
     }
@@ -40,9 +63,6 @@ public class MyinforGUI {
     }
 
 
-    private JTextField textField1;
-    private JButton updataButton;
-    private JPanel Myinfor;
-    private JLabel avatar;
+
 
 }

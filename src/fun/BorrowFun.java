@@ -2,14 +2,11 @@ package fun;
 
 import GUI.BorrowGUI;
 import classlib.*;
-
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+import GUI.*;
 public class BorrowFun {
     List books = JBDC_Booklib.readBookData();
     public static boolean BorrowbyID(int bookid){
@@ -18,9 +15,9 @@ public class BorrowFun {
     }
     public static int getBookID(int currentpagenum,int index){
         List<Book> books = JBDC_Booklib.readBookData();
-        int ID = (currentpagenum-1)*5+index;
+        int line = (currentpagenum-1)*5+index;
 
-        return ID;
+        return line;
     }
     public static int getBook(int currentpagenum,int index){
         List<Book> books = JBDC_Booklib.readBookData();
@@ -52,9 +49,7 @@ public class BorrowFun {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(getthisBookID(2,1));
-    }
+
     public static String getMaxPagenum() {
         List books = JBDC_Booklib.readBookData();
         int Maxpagenum = books.size()/5+1;
@@ -63,7 +58,6 @@ public class BorrowFun {
 
     public static boolean borrowBook(int bookID, String borrowUserID) {
         Date today = new Date();
-
         SimpleDateFormat Format = new SimpleDateFormat("yyyy-MM-dd");
         String borrowData = Format.format(today);
         Calendar returnDate = Calendar.getInstance();
@@ -71,6 +65,9 @@ public class BorrowFun {
         String returndate = Format.format(returnDate.getTime());
         Book BorrowBook = JBDC_Booklib.querryBookbyID(bookID);
         boolean flag =  JBDC_Borrowlib.addBookData(BorrowBook.getid(),borrowUserID,borrowData,returndate,1);
+        system.setBorrownum(system.getBorrownum()+1);
+        JBDC_User.editUserBorrownum(system.getPhone(),system.getBorrownum());
+
         return true;
     }
 

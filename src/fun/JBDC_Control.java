@@ -23,9 +23,6 @@ public class JBDC_Control {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url,user,pass);    //2.得到连接
-            if (!connection.isClosed()){
-                System.out.println("连接成功！");
-            }
         }
         catch (SQLException e) {
             // TODO Auto-generated catch block

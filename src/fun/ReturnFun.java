@@ -7,24 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReturnFun {
-    public static List getUserlist(){
+    public static List getUserdata(){
         List<Borrowrecord> borrowrecords = JBDC_Borrowlib.readBorrowData();
-
         List<Borrowrecord> userrecords= new ArrayList<>();
         for (Borrowrecord record:borrowrecords){
-            System.out.println(record.getBorrowUserID());
-            String userID = record.getBorrowUserID();
-            if (userID.equals(system.getPhone())){
+            if (record.getBorrowUserID().equals(system.getPhone())){
                 userrecords.add(record);
             }
+
         }
         return userrecords;
     }
 
     public static int getMaxPagenum() {
-        List userlist = ReturnFun.getUserlist();
-        float Maxpagef =  userlist.size()/5;
-        int Maxpagenum = userlist.size()/5;
+        List userrecords = getUserdata();
+        float Maxpagef =  userrecords.size()/5;
+        int Maxpagenum = userrecords.size()/5;
         if (Maxpagef!=Maxpagenum){
             return Maxpagenum;
         }else {
@@ -34,18 +32,56 @@ public class ReturnFun {
 
 
     public static String getbookname(int curentpagenum, int index) {
-        List<Borrowrecord> userlist = ReturnFun.getUserlist();
-        System.out.println(userlist);
+        List<Borrowrecord> userrecords = getUserdata();
+
         int line = (curentpagenum-1)*5+index-1;
-        System.out.println(line);
-        Borrowrecord thisrecord=userlist.get(line);
-        int bookid = thisrecord.getId();
-        String bookname = JBDC_Booklib.querryBookbyID(bookid).getbookname();
+        if (line>=userrecords.size()||userrecords.size()<0){
+            return "";
+        }
+        Borrowrecord thisrecord = userrecords.get(line);
 
-        return bookname;
-
+        Book thisbook = JBDC_Booklib.querryBookbyID(thisrecord.getBorrowBookID());
+        return thisbook.getbookname();
     }
 
 
+    public static String getBorrowDate(int curentpagenum, int index) {
+        List<Borrowrecord> userrecords = getUserdata();
+
+        int line = (curentpagenum-1)*5+index-1;
+        if (line>=userrecords.size()||userrecords.size()<0){
+            return "";
+        }
+        Borrowrecord thisrecord = userrecords.get(line);
+        return "借阅日期："+thisrecord.getBorrowDate();
+    }
+
+    public static String getBookIMG(int curentpagenum, int index) {
+        List<Borrowrecord> userrecords = getUserdata();
+
+        int line = (curentpagenum-1)*5+index-1;
+        if (line>=userrecords.size()||userrecords.size()<0){
+            return "";
+        }
+        Borrowrecord thisrecord = userrecords.get(line);
+        String path = "D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\"+thisrecord.getBorrowBookID()+".jpg";
+        return path;
+    }
+    public static boolean returnbook(int curentpagenum, int index){
+        List<Borrowrecord> userrecords = getUserdata();
+
+        int line = (curentpagenum-1)*5+index-1;
+        if (line>=userrecords.size()||userrecords.size()<0){
+            return false;
+        }
+        Borrowrecord thisrecord = userrecords.get(line);
+
+        int Bookid = thisrecord.getBorrowBookID();
+        int id = thisrecord.getID();
+        boolean flag1=JBDC_Borrowlib.deletebyID(id);
+        boolean flag2=JBDC_Booklib.Updatestatus(Bookid,0);
+        return true;
+
+    }
 }
 

@@ -98,7 +98,7 @@ public class BorrowGUI {
         B2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,2);
+                int BookID = BorrowFun.getthisBookID(current,2);
 
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B2.setEnabled(false);
@@ -112,7 +112,7 @@ public class BorrowGUI {
         B3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int BookID = BorrowFun.getBookID(current,3);
+                int BookID = BorrowFun.getthisBookID(current,3);
                 System.out.println(BookID);
                 if (BorrowFun.borrowBook(BookID,BorrowUserID)){
                     B3.setEnabled(false);
@@ -224,7 +224,7 @@ public class BorrowGUI {
     }
 
     private String getBookState(JButton button, int curentpagenum, int i) {
-        int BookID = BorrowFun.getBookID(curentpagenum,i);
+        int BookID = BorrowFun.getthisBookID(curentpagenum,i);
         if (BookID!=-1){
             Book book = JBDC_Booklib.querryBookbyID(BookID);
             switch (book.getstate()){

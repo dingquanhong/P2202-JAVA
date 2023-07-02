@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import classlib.*;
+import fun.UserFun;
 import fun.Window;
 
 public class userGUI{
@@ -27,6 +28,7 @@ public class userGUI{
     private JLabel F3;
     private JLabel F4;
     private JLabel F5;
+    private JLabel Borrowingnum;
 
     public userGUI(){
 
@@ -56,15 +58,20 @@ public class userGUI{
             }
         });
         String path = system.getDefaultavatar();
+        this.username.setText(system.getUser());
+        this.Borrowingnum.setText(String.valueOf(system.getBorrownum()));
+        if (system.getAvatar()==0){
+            this.avatar.setIcon(new ImageIcon(path));
+        }else {
+            this.avatar.setIcon(new ImageIcon(system.avatarpath()));
+        }
 
 
-        avatar.setIcon(new ImageIcon(path));
-
-        F1.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\1.jpg"));
-        F2.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\2.jpg"));
-        F3.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\4.jpg"));
-        F4.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\5.jpg"));
-        F5.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\7.jpg"));
+        this.F1.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(1)));
+        this.F2.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(2)));
+        this.F3.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(3)));
+        this.F4.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(4)));
+        this.F5.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(5)));
 
     }
 
@@ -81,9 +88,7 @@ public class userGUI{
 
     }
 
-    public static void main(String[] args) {
-        show();
-    }
+
 
 
 }

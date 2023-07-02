@@ -1,8 +1,8 @@
 package GUI;
 
-import classlib.Book;
 import classlib.Borrowrecord;
 import fun.BookmanagementFun;
+import fun.BorrowFun;
 import fun.JBDC_Borrowlib;
 import fun.Window;
 
@@ -21,6 +21,8 @@ public class Bookmanagement {
     private JButton B2;
     private JButton B3;
     private JButton B4;
+    private JLabel page;
+    private JButton B5;
     private JLabel k2;
     private JLabel k4;
     private JLabel k1;
@@ -70,7 +72,6 @@ public class Bookmanagement {
                 if (delrecode!=null)
                 {
                     JBDC_Borrowlib.deletebyID(delrecode.getBorrowBookID());
-
                     GUIShow(1);
                 }else{
                     JOptionPane.showMessageDialog(null,"图书无法归还");
@@ -83,6 +84,7 @@ public class Bookmanagement {
                 Borrowrecord delrecode =JBDC_Borrowlib.querryByBookID(BookmanagementFun.getBookID(current,1));
                 if (delrecode!=null)
                 {
+
                     JBDC_Borrowlib.deletebyID(delrecode.getBorrowBookID());
 
                     GUIShow(1);
@@ -110,17 +112,14 @@ public class Bookmanagement {
     public static void show() {
         JFrame frame = new JFrame("Bookmanagement");
         frame.setContentPane(new Bookmanagement().Manage);
-
         frame.pack();
         frame.setVisible(true);
         Window.tocenter(frame);
     }
     public void GUIShow(int curentpagenum){
-//        this.button1.setText(String.valueOf(curentpagenum)+"/"+ BookmanagementFun.getMaxPagenum());
-        k1.setIcon(new ImageIcon("D:\\JAVA\\P2202-JAVA\\P2202-JAVA\\src\\bin\\book\\5.jpg"));
-        k2.setIcon(new ImageIcon("D:\\JAVA\\P2202-JAVA\\P2202-JAVA\\src\\bin\\book\\4.jpg"));
-        k3.setIcon(new ImageIcon("D:\\JAVA\\P2202-JAVA\\P2202-JAVA\\src\\bin\\book\\3.jpg"));
-        k4.setIcon(new ImageIcon("D:\\JAVA\\P2202-JAVA\\P2202-JAVA\\src\\bin\\book\\2.jpg"));
+
+
+
     }
 
     public static void main(String[] args) {
@@ -129,5 +128,6 @@ public class Bookmanagement {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        Window.tocenter(frame);
     }
 }

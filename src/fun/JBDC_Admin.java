@@ -33,6 +33,7 @@ public class JBDC_Admin {
             if (i > 0) {
                 System.out.println("输入成功");
             }
+            JBDC_Control.close(null,statement,connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {

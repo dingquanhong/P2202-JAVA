@@ -5,13 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a02b89e-8c97-4c12-ac39-4ac4170ad449" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/fun/OutrerdueceFUN.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/BorrowGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BorrowGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MyinforGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MyinforGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MyinforGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MyinforGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UserGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UserGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/userGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/userGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/Borrowrecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/Borrowrecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/system.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/system.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/BorrowFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/BorrowFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Booklib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Booklib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Control.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/JBDC_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/LoginFUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/LoginFUN.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/ReturnFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/ReturnFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/UserFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/UserFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/file.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/file.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,36 +61,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Download/NDM/P2202-JAVA-Old2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Project/IntelliJ IDEA/P2202-JAVA/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;库&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL 插入",
+    "database.data.extractors.current.id": "SQL 插入",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/27726/Desktop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "D:/Project/IntelliJ IDEA/P2202-JAVA/src/Main.java",
+    "project.structure.last.edited": "库",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Project\Project practice\P2202\P2202-JAVA\src\GUI" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="DatabaseScript" />
+      </set>
+    </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -102,6 +131,9 @@
       <workItem from="1688282146782" duration="2463000" />
       <workItem from="1688284988651" duration="3273000" />
       <workItem from="1688291596082" duration="55000" />
+      <workItem from="1688291875362" duration="2941000" />
+      <workItem from="1688294873780" duration="4748000" />
+      <workItem from="1688299666376" duration="14282000" />
     </task>
     <servers />
   </component>

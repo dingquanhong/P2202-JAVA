@@ -2,7 +2,7 @@ package fun;
 import classlib.*;
 
 
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class JBDC_User {
                         rs.getString(2), //user
                         rs.getString(3),//pass
                         rs.getString(4),//phone
-                        rs.getString(5),//avatar
+                        rs.getInt(5),//avatar
                         rs.getInt(6),//borrownum
                         rs.getString(7),//borrowbooklist
                         rs.getInt(7),//booklistnum
@@ -89,9 +89,11 @@ public class JBDC_User {
             int status = statement.executeUpdate(sql);
             if (status > 0) {
                 System.out.println("增加成功");
+                JBDC_Control.close(null,statement,connection);
                 return true;
             } else {
                 System.out.println("增加失败");
+                JBDC_Control.close(null,statement,connection);
                 return false;
             }
         } catch (SQLException e) {
@@ -108,11 +110,7 @@ public class JBDC_User {
         int i;
         try {
             statement = connection.prepareStatement("delete from user where phone=?");
-//            if (params != null) {
-//                for (i = 0; i < params.length; ++i) {
-//                    statement.setObject(i + 1, params[i]);
-//                }
-//            }
+
             statement.setString(1, phone);//1代表的是sql语句中的第一个问号“？”
 
             i = statement.executeUpdate();
@@ -127,7 +125,7 @@ public class JBDC_User {
         return true;
 
     }
-    //<--------------------------------------改----------------------------------------->
+
 
     public static boolean editUserbyPhone(String phone, User newuser) {
         Connection connection = JBDC_Control.getConnection();
@@ -151,41 +149,100 @@ public class JBDC_User {
     }
 
 
-//    public static boolean  getUserInformation( ){
-//        Connection connection = JBDC_Control.getConnection();
-//        Statement statement = null;
-//        ResultSet rs=null;
-//        String query="SELECT id ,user,pass,phone,borrownum,A1,A2,A3 FROM user";
-//        try {
-//            statement= connection.createStatement();
-//            rs=statement.executeQuery(query);
-//            while(rs.next()){
-//                Object id=rs.getInt("id");
-//                String user=rs.getString("user");
-//                String pass=rs.getString("pass");
-//                String phone=rs.getString("phone");
-//                Object borrownum=rs.getInt("borrownum");
-//                String A1=rs.getString("A1");
-//                String A2=rs.getString("A2");
-//                String A3=rs.getString("A3");
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }finally {
-//            JBDC_Control.close(rs,statement,connection);
-//        }
-//       return true;
-//    }
 
-    //       public static void main(String[] args) {
-////        Object[] obj= {"43543543"};
-////        JBDC_User.deleteUserbyPhone(obj);
-//  //      JBDC_User.deleteUserbyPhone("12312421");
-//            JBDC_User.editUserbyPhone("5654645","1243423");
-    //  getUserInformation();
-//
-    //   }
+    public static boolean editQuestionbyPhone(String phone, String a1,String a2,String a3) {
+        Connection connection = JBDC_Control.getConnection();
+        PreparedStatement statement = null;
+        int i;
+        try {
+            statement = connection.prepareStatement("update user set A1 = ? ,A2 = ? , A3 = ? where phone=?");
+            statement.setString(1,a1);
+            statement.setString(2, a2);
+            statement.setString(3, a3);
+            statement.setString(4, phone);
+            i = statement.executeUpdate();
+            if (i > 0) {
+                System.out.println("修改成功！");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JBDC_Control.close(null, statement, connection);
+        }
+        return true;
+    }
+
+
+    public static void editUserBorrownum(String phone,int borrownum) {
+        Connection connection = JBDC_Control.getConnection();
+        PreparedStatement statement = null;
+        int i;
+        try {
+
+            statement = connection.prepareStatement("update user set borrownum = ?  where phone=?");
+            statement.setString(1, String.valueOf(borrownum));
+            statement.setString(2, phone);
+
+            i = statement.executeUpdate();
+            if (i > 0) {
+                System.out.println("修改成功！");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JBDC_Control.close(null, statement, connection);
+        }
+
+    }
+
+    public static void editUserimg(String phone, int status) {
+        Connection connection = JBDC_Control.getConnection();
+        PreparedStatement statement = null;
+        int i;
+        try {
+
+            statement = connection.prepareStatement("update user set avatar = ?  where phone=?");
+            statement.setInt(1, status);
+            statement.setString(2, phone);
+
+            i = statement.executeUpdate();
+            if (i > 0) {
+                System.out.println("修改成功！");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JBDC_Control.close(null, statement, connection);
+        }
+    }
+
+    public static void editUserData(int userid, String phonenum, String username, String password) {
+        Connection connection = JBDC_Control.getConnection();
+        PreparedStatement statement = null;
+        int i;
+        try {
+
+            statement = connection.prepareStatement("update user set phone = ? , user.user = ? ,pass = ?  where id= ?");
+            statement.setString(1, phonenum);
+            statement.setString(2, username);
+            statement.setString(3,password);
+            statement.setInt(4,userid);
+
+            i = statement.executeUpdate();
+            if (i > 0) {
+                JOptionPane.showMessageDialog(null,"修改成功,请重新登录");
+                System.exit(0);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JBDC_Control.close(null, statement, connection);
+        }
+    }
 }
+
+
+
 
 
 
