@@ -13,7 +13,7 @@
 
 ## 功能描述
 
-![image.png](https://s1.vika.cn/space/2023/07/10/73a2ede727b143d48bc3af45a7059c09)
+<img src="https://s1.vika.cn/space/2023/07/10/73a2ede727b143d48bc3af45a7059c09" alt="image.png" style="zoom:33%;" />
 
 ## TO-List
 
