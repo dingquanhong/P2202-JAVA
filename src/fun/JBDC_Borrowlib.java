@@ -239,4 +239,32 @@ public class JBDC_Borrowlib {
         }
         return null;
     }
+
+    public static void updateststus(int id, int status) {
+        Connection conn=null;
+        PreparedStatement ps=null;
+        try {
+            JBDC_Control.getConnection();
+            ps=conn.prepareStatement("update borrowlib set status= ? where id = ?");
+            ps.setInt(2,id);
+            ps.setInt(1,status);
+            int i=ps.executeUpdate();
+            if (i>0){
+                System.out.println("修改成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (ps!=null){
+                    ps.close();
+                }
+                if (conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 }

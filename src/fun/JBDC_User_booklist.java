@@ -1,44 +1,41 @@
 package fun;
 
 import java.sql.*;
-
+import java.util.ArrayList;
+import java.util.List;
+import classlib.*;
 public class JBDC_User_booklist {
-    //查询
-    public static void selectbyListid(int listid) throws ClassNotFoundException, SQLException {
-        Connection conn=null;
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+    public static List ReaduserbookListData(){
+        List<Booklist> booklists = new ArrayList<>();
+        Connection connection = JBDC_Control.getConnection();
+
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/library";
-            String user = "root";
-            String pass = "123";
-            conn= DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("select*from user_booklist");
-            rs= ps.executeQuery();
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM user_booklist";
+            ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                rs.getInt(listid);//根据列的索引取值
-                int userid = rs.getInt(2);
-                int list = rs.getInt(3);
-                System.out.println(listid + "," + userid + "," + list + ",");
+                booklists.add(new Booklist(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3)
+                ));
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            try {
-                if (rs!=null) {
-                    rs.close();
-                }
-                if (ps!=null){
-                    ps.close();
-                }
-                if (conn!=null){
-                    conn.close();
-                }
-            }catch (Exception e){
-                e.printStackTrace();
+            JBDC_Control.close(rs, statement, connection);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return booklists;
+    }
+    //查询
+    public static Booklist selectbyListid(int listid) {
+        List<Booklist> booklist = JBDC_User_booklist.ReaduserbookListData();
+        for(Booklist list :booklist){
+            if (list.getListid()==listid){
+                return list;
             }
         }
+        return null;
     }
 
 
@@ -75,18 +72,14 @@ public class JBDC_User_booklist {
     }
 
     //插入
-    public static void insert(int listid, int userid, String list) throws ClassNotFoundException, SQLException {
+    public static void insert(int listid, String userid, String list) {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/library";
-            String user = "root";
-            String pass = "123";
-            conn=DriverManager.getConnection(url,user,pass);
+            JBDC_Control.getConnection();
             ps=conn.prepareStatement("insert into user_booklist values(?,?,?)");
             ps.setInt(1,listid);
-            ps.setInt(2,userid);
+            ps.setString(2,userid);
             ps.setString(3,list);
             int i=ps.executeUpdate();
             if (i>0){
@@ -109,18 +102,14 @@ public class JBDC_User_booklist {
     }
 
     //更改
-    public static void update() throws ClassNotFoundException, SQLException {
+    public static void update(String list , int listid) {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/library";
-            String user = "root";
-            String pass = "123";
-            conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("update user_booklist set userid = ? where userid = ?");
-            ps.setInt(1,1);
-            ps.setInt(2,2);
+            conn=JBDC_Control.getConnection();
+            ps=conn.prepareStatement("update user_booklist set list = ? where listid = ?");
+            ps.setString(1,list);
+            ps.setInt(2,listid);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("修改成功");

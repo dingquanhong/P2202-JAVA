@@ -33,7 +33,7 @@ public class MyinforGUI {
         avatar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                file.filecopy("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\user\\"+system.getPhone()+".jpg");
+                file.avatarcopy("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\user\\"+system.getPhone()+".jpg");
                 JBDC_User.editUserimg(system.getPhone(),1);
                 super.mouseClicked(e);
             }

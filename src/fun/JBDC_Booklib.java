@@ -40,9 +40,6 @@ public class JBDC_Booklib {
         return BookList;
     }
 
-    public static void main(String[] args) {       //打印
-        Updatestatus(1,0);
-    }
 
     /**
      * querry bookby id
@@ -73,7 +70,7 @@ public class JBDC_Booklib {
 
         try {
             Statement statement = connection.createStatement();
-            String sql = "DELETE FROM book WHERE id =" + id;
+            String sql = "DELETE FROM booklib WHERE id = " + id;
             int count =statement.executeUpdate(sql);
             if (count>0) {
                 System.out.println("id为" + id + " 的图书已经删除");
@@ -144,10 +141,15 @@ public class JBDC_Booklib {
 
         try {
             Statement statement = connection.createStatement();
-            String sql = "INSERT INTO book (bookname, author, describe, ISBN, score, price, state) VALUES ('" +
-                    book.getbookname() + "', '" + book.getauthor() + "', '" + book.getdescribe() + "', '" +
-                    book.getISBN() + "', " + book.getscore() + ", " + book.getprice() + ", " + book.getstate() + ")";
-
+            String sql = "INSERT INTO booklib  VALUES ("+book.getid()+",'"
+                    + book.getbookname() + "', '"
+                    + book.getauthor() + "', "
+                    + "'1','"+book.getdescribe()
+                    + "', " + book.getscore()
+                    + ", '" + book.getISBN()
+                    + "', " + book.getprice()
+                    + ", " + book.getstate() + ")";
+            System.out.println(sql);
             int count =statement.executeUpdate(sql);
             if (count>0) {
                 System.out.println("图书已添加");
@@ -159,6 +161,9 @@ public class JBDC_Booklib {
         }
         return false;
     }
+
+
+
 
     public static List querryBookbyName(String searchtext) {
         List<Book> BookList =  readBookData();

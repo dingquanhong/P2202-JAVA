@@ -29,6 +29,14 @@ public class userGUI{
     private JLabel F4;
     private JLabel F5;
     private JLabel Borrowingnum;
+    private JLabel dueto;
+    private JLabel reduce;
+    private JLabel Booklist1;
+    private JLabel Booklist2;
+    private JLabel Booklist3;
+    private JLabel listimg1;
+    private JLabel listimg2;
+    private JLabel listimg3;
 
     public userGUI(){
 
@@ -65,14 +73,37 @@ public class userGUI{
         }else {
             this.avatar.setIcon(new ImageIcon(system.avatarpath()));
         }
-
-
+        dueto.setText(String.valueOf(UserFun.getduetonum()));
+        reduce.setText(String.valueOf(UserFun.getreducenum()));
         this.F1.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(1)));
         this.F2.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(2)));
         this.F3.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(3)));
         this.F4.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(4)));
         this.F5.setIcon(new ImageIcon(UserFun.getfavoriteBookimg(5)));
-
+        listimg1.setIcon(new ImageIcon(system.getListimgpath()));
+        listimg2.setIcon(new ImageIcon(system.getListimgpath()));
+        listimg3.setIcon(new ImageIcon(system.getListimgpath()));
+        listimg1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                BooklistGUI.show(1);
+                super.mouseClicked(e);
+            }
+        });
+        listimg2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                BooklistGUI.show(2);
+                super.mouseClicked(e);
+            }
+        });
+        listimg3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                BooklistGUI.show(3);
+                super.mouseClicked(e);
+            }
+        });
     }
 
 

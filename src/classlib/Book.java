@@ -11,6 +11,10 @@ public class Book {
     Float price;                   //图书价格
     int state;                     //图书状态（在库：1  借出：0   已损坏：-1）
 
+    public Book() {
+
+    }
+
     public int getid() {
         return id;
     }

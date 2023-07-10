@@ -1,5 +1,9 @@
 package fun;
 
+import classlib.Booklist;
+
+import java.util.List;
+
 public class RegisterFUN {
     /**
      * 注册方法
@@ -28,5 +32,10 @@ public class RegisterFUN {
             return "密码不能小于6位";
         }
         return "";
+    }
+
+    public static int getlistnum() {
+        List <Booklist> booklists= JBDC_User_booklist.ReaduserbookListData();
+        return booklists.size();
     }
 }

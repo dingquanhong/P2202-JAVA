@@ -5,6 +5,24 @@ public class system {
     static String mysql_pass = "123456";
     static int avatar;
     static int userid ;
+    static String listimgpath;
+    static String userphone;
+
+    public static String getUserphone() {
+        return userphone;
+    }
+
+    public static void setUserphone(String userphone) {
+        system.userphone = userphone;
+    }
+
+    public static String getListimgpath() {
+        return "D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\booklist.png";
+    }
+
+    public static void setListimgpath(String listimgpath) {
+        system.listimgpath = listimgpath;
+    }
 
     public static int getUserid() {
         return userid;
@@ -102,5 +120,6 @@ public class system {
     public static String getMysql_admin() {
         return mysql_admin;
     }
+
 
 }

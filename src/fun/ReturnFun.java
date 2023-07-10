@@ -75,13 +75,35 @@ public class ReturnFun {
             return false;
         }
         Borrowrecord thisrecord = userrecords.get(line);
-
         int Bookid = thisrecord.getBorrowBookID();
         int id = thisrecord.getID();
         boolean flag1=JBDC_Borrowlib.deletebyID(id);
         boolean flag2=JBDC_Booklib.Updatestatus(Bookid,0);
+        system.setBorrownum(system.getBorrownum()-1);
+        System.out.println(system.getBorrownum());
+        JBDC_User.editUserBorrownum(system.getPhone(),system.getBorrownum());
         return true;
 
+    }
+
+
+    public static String getstatus(int curentpagenum, int index) {
+        List<Borrowrecord> userrecords = getUserdata();
+
+        int line = (curentpagenum-1)*5+index-1;
+        if (line>=userrecords.size()||userrecords.size()<0){
+            return "";
+        }
+        Borrowrecord thisrecord = userrecords.get(line);
+        String returndate = thisrecord.getReturenDate();
+        if(DateFun.calDate(returndate)<0){
+            int id = thisrecord.getID();
+
+            JBDC_Borrowlib.updateststus(id,3);
+            return "已逾期";
+        }else {
+            return "距离归还还有"+DateFun.calDate(returndate)+"天";
+        }
     }
 }
 

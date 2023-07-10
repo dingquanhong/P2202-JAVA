@@ -67,9 +67,11 @@ public class RegisterDialog extends JDialog {
 
                 if (haveerro.equals("")){
                     this.setVisible(false);
-//                    if(JBDC_User.addUserData(username,pass1,phone)){
-//                        JOptionPane.showMessageDialog(null,"注册成功");
-//                    }
+                    JBDC_User.addUserData(username,pass1,phone);
+                    int listnum = RegisterFUN.getlistnum();
+                    for(int i = 1;i<=3;i++){
+                        JBDC_User_booklist.insert(listnum+i,phone,"");
+                    }
                     SetquestionDialog dialog = new SetquestionDialog(phone);
                     dialog.pack();
                     dialog.setVisible(true);

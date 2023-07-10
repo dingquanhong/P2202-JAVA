@@ -1,11 +1,12 @@
 package GUI;
 
 import fun.*;
+import fun.Window;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 
 public class ReturnGUI {
     int current = 1;
@@ -41,6 +42,11 @@ public class ReturnGUI {
     private JLabel img3;
     private JLabel img4;
     private JLabel img5;
+    private JLabel status1;
+    private JLabel status2;
+    private JLabel status3;
+    private JLabel status4;
+    private JLabel status5;
 
 
     public ReturnGUI() {
@@ -114,6 +120,29 @@ public class ReturnGUI {
         name3.setText(ReturnFun.getbookname(curentpagenum,3));
         name4.setText(ReturnFun.getbookname(curentpagenum,4));
         name5.setText(ReturnFun.getbookname(curentpagenum,5));
+        status1.setText(ReturnFun.getstatus(curentpagenum,1));
+        status2.setText(ReturnFun.getstatus(curentpagenum,2));
+        status3.setText(ReturnFun.getstatus(curentpagenum,3));
+        status4.setText(ReturnFun.getstatus(curentpagenum,4));
+        status5.setText(ReturnFun.getstatus(curentpagenum,5));
+        Color outreduce = new Color(207, 91, 86);
+        if (status1.getText().equals("已逾期")){
+
+            status1.setForeground(outreduce);
+        }
+        if (status2.getText().equals("已逾期")){
+
+            status3.setForeground(outreduce);
+        }
+        if (status4.getText().equals("已逾期")){
+
+            status4.setForeground(outreduce);
+        }
+        if (status5.getText().equals("已逾期")){
+
+            status5.setForeground(outreduce);
+        }
+
         if (name1.getText().equals("")){
             Book1.setVisible(false);
             JOptionPane.showMessageDialog(null,"您没有需要归还的图书");
@@ -140,6 +169,7 @@ public class ReturnGUI {
         img3.setIcon(new ImageIcon(ReturnFun.getBookIMG(curentpagenum,3)));
         img4.setIcon(new ImageIcon(ReturnFun.getBookIMG(curentpagenum,4)));
         img5.setIcon(new ImageIcon(ReturnFun.getBookIMG(curentpagenum,5)));
+
         B1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -30,6 +30,7 @@ public class LoginFUN {
                         system.setPass(userlogin.getPass());
                         system.setAvatar(userlogin.getAvatar());
                         system.setUserid(userlogin.getId());
+                        system.setUserphone(userlogin.getPhone());
                         System.out.println(userlogin.getUser()+"登录成功");
                         return true;
                     }

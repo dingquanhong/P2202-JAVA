@@ -1,7 +1,9 @@
 package fun;
 
 import classlib.Book;
+import classlib.Borrowrecord;
 
+import java.util.Date;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -44,5 +46,27 @@ public class UserFun {
             queue.add(book);
         }
         return queue;
+    }
+
+    public static int getduetonum() {
+        List<Borrowrecord> userlist =ReturnFun.getUserdata();
+        int count = 0;
+        for(Borrowrecord record : userlist){
+            if (DateFun.calDate(record.getReturenDate())<5){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int getreducenum() {
+        List<Borrowrecord> userlist =ReturnFun.getUserdata();
+        int count = 0;
+        for(Borrowrecord record : userlist){
+            if (DateFun.calDate(record.getReturenDate())<0){
+                count++;
+            }
+        }
+        return count;
     }
 }

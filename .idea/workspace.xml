@@ -5,9 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a02b89e-8c97-4c12-ac39-4ac4170ad449" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUI/BooklistGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/BooklistGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classlib/Booklist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fun/Adminfun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fun/DateFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AdminGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AdminGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AdminGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BooklistAddGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BooklistAddGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BooklistAddGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BooklistAddGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Bookmanagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BorrowGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BorrowGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BorrowGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MyinforGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MyinforGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/NewBook.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NewBook.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/NewBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/NewBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/OverduemanageGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/OverduemanageGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/OverduemanageGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/OverduemanageGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/RegisterDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RegisterDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UaerManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UaerManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UserGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UserGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/userGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/userGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classlib/system.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classlib/system.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/BookmanagementFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/BookmanagementFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Booklib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Booklib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_Borrowlib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/JBDC_User_booklist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/JBDC_User_booklist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/LoginFUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/LoginFUN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/RegisterFUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/RegisterFUN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/ReturnFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/ReturnFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/UserFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/UserFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/file.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/file.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +64,9 @@
     <setting file="jar://$USER_HOME$/.jdks/openjdk-20.0.1/lib/src.zip!/java.base/java/text/DateFormat.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-20.0.1/lib/src.zip!/java.base/java/text/Format.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2RobxTjTwlcWNFh2pYRN3ucAgUE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,7 +79,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL 插入&quot;,
@@ -111,10 +149,33 @@
       <workItem from="1688294873780" duration="4748000" />
       <workItem from="1688299666376" duration="14282000" />
       <workItem from="1688316732625" duration="1936000" />
+      <workItem from="1688340350041" duration="2018000" />
+      <workItem from="1688352320626" duration="2541000" />
+      <workItem from="1688355987737" duration="61000" />
+      <workItem from="1688356080628" duration="2186000" />
+      <workItem from="1688374448595" duration="209000" />
+      <workItem from="1688391069708" duration="602000" />
+      <workItem from="1688432763078" duration="15639000" />
+      <workItem from="1688450710995" duration="382000" />
+      <workItem from="1688451174115" duration="202000" />
+      <workItem from="1688957613378" duration="395000" />
+      <workItem from="1688973683942" duration="91000" />
+      <workItem from="1688974353698" duration="776000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/fun/ReturnFun.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

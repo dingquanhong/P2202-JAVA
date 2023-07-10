@@ -1,5 +1,6 @@
 package GUI;
 
+import fun.Adminfun;
 import fun.BorrowFun;
 import fun.JBDC_Booklib;
 import fun.Window;
@@ -46,6 +47,11 @@ public class BorrowGUI {
     private JLabel img3;
     private JLabel img4;
     private JLabel img5;
+    private JButton A1;
+    private JButton A2;
+    private JButton A3;
+    private JButton A4;
+    private JButton A5;
 
     public BorrowGUI(){
         GUIShow(current);
@@ -220,7 +226,13 @@ public class BorrowGUI {
         this.img3.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\"+BorrowFun.getthisBookID(curentpagenum,3)+".jpg"));
         this.img4.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\"+BorrowFun.getthisBookID(curentpagenum,4)+".jpg"));
         this.img5.setIcon(new ImageIcon("D:\\Project\\Project practice\\P2202\\P2202-JAVA\\src\\bin\\book\\"+BorrowFun.getthisBookID(curentpagenum,5)+".jpg"));
+        A1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                BooklistAddGUI.show(BorrowFun.getthisBookID(current,1));
+            }
+        });
     }
 
     private String getBookState(JButton button, int curentpagenum, int i) {

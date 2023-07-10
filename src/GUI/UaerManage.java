@@ -66,8 +66,6 @@ public class UaerManage {
     }
 
     public static void show() {
-
-
         JFrame frame = new JFrame("UaerManage");
         frame.setContentPane(new UaerManage().UserManage);
         Window.tocenter(frame);
